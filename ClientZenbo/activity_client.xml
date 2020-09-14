@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Client">
+
+    <TextView
+        android:id="@+id/serverState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:id="@+id/disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/disconnect"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/serverState"
+        android:layout_marginTop="20dp"
+        android:onClick="Disconnect"/>
+
+    <TextView
+        android:id="@+id/responseMsg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:isScrollContainer="true"
+        android:scrollbars="vertical"
+        android:singleLine="false"
+        android:textSize="15sp"
+        android:layout_below="@+id/disconnect"
+        android:layout_marginTop="10dp"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/responseMsg"
+        android:layout_marginTop="40dp">
+
+    <TextView
+        android:id="@+id/wheel_movement"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Wheel Movement"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/head_movement"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:gravity="center_horizontal"
+        android:text="Head Movement"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+        <io.github.controlwear.virtual.joystick.android.JoystickView
+            android:id="@+id/joystickView_left"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/wheel_movement"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+
+            app:JV_backgroundColor="#009688"
+            app:JV_borderColor="#00796B"
+            app:JV_borderWidth="8dp"
+            app:JV_buttonColor="#FF6E40" />
+
+        <io.github.controlwear.virtual.joystick.android.JoystickView
+            android:id="@+id/joystickView_right"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/head_movement"
+            android:layout_toRightOf="@+id/joystickView_left"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="40dp"
+
+            app:JV_backgroundColor="#009688"
+            app:JV_borderColor="#00796B"
+            app:JV_borderWidth="8dp"
+            app:JV_buttonColor="#FF6E40" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
+        android:text="@string/light"
+        android:onClick="btnLight_onClick"/>
+
+
+</RelativeLayout>
